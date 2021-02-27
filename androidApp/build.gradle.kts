@@ -14,6 +14,9 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.3.3")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${rootProject.extra["kotlin_version"]}")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("org.koin:koin-android-viewmodel:2.1.6")
+    implementation("org.koin:koin-android:2.1.6")
+    implementation("org.koin:koin-android-scope:2.1.6")
 }
 
 android {
