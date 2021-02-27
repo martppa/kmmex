@@ -1,4 +1,4 @@
-package com.martppa.kmmex.androidApp.activity
+package com.martppa.kmmex.androidApp.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.martppa.kmmex.androidApp.fragment
+package com.martppa.kmmex.androidApp.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
