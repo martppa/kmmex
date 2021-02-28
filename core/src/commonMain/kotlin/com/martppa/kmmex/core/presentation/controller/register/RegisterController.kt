@@ -1,13 +1,7 @@
 package com.martppa.kmmex.core.presentation.controller.register
 
-import com.martppa.kmmex.core.domain.exception.ExceptionHandler
-import com.martppa.kmmex.core.presentation.controller.BaseIOScopedController
+import com.martppa.kmmex.core.presentation.controller.IOScopedController
 
-class RegisterController(
-    exceptionHandler: ExceptionHandler
-) : BaseIOScopedController(exceptionHandler) {
-
-    fun registerClicked() {
-
-    }
+interface RegisterController : IOScopedController {
+    fun registerClicked()
 }

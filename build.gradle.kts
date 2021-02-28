@@ -18,5 +18,6 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+        maven(url = "https://dl.bintray.com/ekito/koin")
     }
 }

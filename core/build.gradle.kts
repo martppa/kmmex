@@ -18,6 +18,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2-native-mt")
+                implementation("org.koin:koin-core:3.0.1-alpha-3")
             }
         }
         val commonTest by getting {
@@ -29,6 +30,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("com.google.android.material:material:1.2.1")
+                implementation("org.koin:koin-core:3.0.1-alpha-3")
             }
         }
         val androidTest by getting {
