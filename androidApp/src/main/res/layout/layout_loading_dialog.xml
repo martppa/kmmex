@@ -10,15 +10,14 @@
     <ProgressBar
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:indeterminateTint="@color/light_blue_900"
+        android:indeterminateTint="@color/colorPrimary"
         tools:targetApi="lollipop" />
 
      <androidx.appcompat.widget.AppCompatTextView
          android:id="@+id/loadingDialogTitle"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         style="@style/NormalTextStyle"
          android:textColor="@android:color/black"
          tools:text="Loading"
-         android:layout_marginTop="@dimen/small_margin"/>
+         android:layout_marginTop="8dp"/>
 </LinearLayout>

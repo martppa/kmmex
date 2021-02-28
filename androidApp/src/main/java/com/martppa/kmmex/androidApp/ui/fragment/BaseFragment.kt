@@ -1,11 +1,10 @@
 package com.martppa.kmmex.androidApp.ui.fragment
 
 import android.content.Context
-import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.annotation.IntegerRes
 import androidx.fragment.app.Fragment
+import com.martppa.kmmex.androidApp.ui.view.dialog.LoadingDialog
 
 abstract class BaseFragment : Fragment() {
 
@@ -39,31 +38,5 @@ abstract class BaseFragment : Fragment() {
 
     protected open fun goBack() {
         activity?.onBackPressed()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        if (this::class.annotations.find { it is NestedFragment } == null) {
-            setTopMargin(view)
-        }
-    }
-
-    private fun setTopMargin(view: View) {
-        if (topContainer == null) {
-            updateToPadding(view)
-        } else {
-            updateToPadding(view.findViewById(topContainer!!))
-        }
-    }
-
-    private fun updateToPadding(view: View) {
-        runIfContext {
-            view.setPadding(
-                view.paddingLeft,
-                view.paddingTop + it.getStatusBarHeight(),
-                view.paddingRight,
-                view.paddingBottom
-            )
-        }
     }
 }

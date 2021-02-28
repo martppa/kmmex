@@ -14,9 +14,11 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.3.3")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${rootProject.extra["kotlin_version"]}")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("org.koin:koin-android-viewmodel:2.1.6")
-    implementation("org.koin:koin-android:2.1.6")
-    implementation("org.koin:koin-android-scope:2.1.6")
+    implementation("org.koin:koin-android-viewmodel:2.2.2")
+    implementation("org.koin:koin-android:3.0.1-alpha-3")
+    implementation("org.koin:koin-android-scope:2.2.2")
+    implementation("org.koin:koin-core:3.0.1-alpha-3")
+    implementation("com.android.support:multidex:1.0.3")
 }
 
 android {
@@ -32,6 +34,7 @@ android {
         targetSdkVersion(29)
         versionCode = 1
         versionName = "1.0"
+        multiDexEnabled = true
     }
     buildTypes {
         getByName("release") {
