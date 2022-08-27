@@ -4,6 +4,8 @@ plugins {
     id("com.android.library")
 }
 
+val kotlinCoroutinesVersion: String by rootProject.extra
+
 version = "1.0"
 
 kotlin {
@@ -23,7 +25,13 @@ kotlin {
     }
     
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation(
+                    "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+                )
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))

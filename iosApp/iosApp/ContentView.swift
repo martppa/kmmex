@@ -1,16 +1,24 @@
 import SwiftUI
 import shared
 
+private let WifiRoute = "wifi"
+
 struct ContentView: View {
-	let greet = Greeting().greeting()
-
-	var body: some View {
-		Text(greet)
-	}
-}
-
-struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
-	}
+    @State private var route = [String]()
+    
+    var body: some View {
+        NavigationStack(path: $route) {
+            HomeScreen(
+                viewModel: HomeViewModel(),
+                onNext: { route.append(WifiRoute) }
+            )
+        }.navigationDestination(for: String.self) { destination in
+            switch (destination) {
+            case WifiRoute:
+                WifiScreen()
+            default:
+                Text("None")
+            }
+        }
+    }
 }
