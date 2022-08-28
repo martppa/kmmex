@@ -29,8 +29,9 @@ fun HomeScreen(
     ) {
         Text("Counter value: ${state.counter}")
         Button(
-            onClick = { viewModel.onNextClicked() },
-            content = { Text("Next") }
-        )
+            onClick = { viewModel.onNextClicked() }
+        ) {
+            Text("Next")
+        }
     }
 }
