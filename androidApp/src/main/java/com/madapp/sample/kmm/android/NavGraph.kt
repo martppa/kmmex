@@ -20,7 +20,7 @@ fun NavGraph(
         startDestination = startDestination,
     ) {
         composable(HomeRoute) {
-            HomeScreen(navController, HomeViewModel())
+            HomeScreen(navController)
         }
         composable(WifiRoute) {
             WifiScreen()

@@ -10,7 +10,7 @@ import SwiftUI
 import shared
 
 struct HomeScreen: View {
-    @State private var state: HomeState
+    @ObservedObject private var state: ObservableHomeState
     
     private let viewModel: HomeViewModel
     private let onNext: () -> Void
@@ -21,19 +21,33 @@ struct HomeScreen: View {
     ) {
         self.viewModel = viewModel
         self.onNext = onNext
-        self.state = viewModel.state.value as! HomeState
+        self.state = viewModel.observableState()
+        observeState()
+    }
+    
+    private func observeState() {
+        viewModel.state.collect(
+            collector: Collector<HomeState> { state in onStateReceived(state: state) }
+        ) { error in
+            print("Error ocurred during state collection")
+        }
+    }
+    
+    private func onStateReceived(state: HomeState) {
+        self.state.value = state
+        self.state.value.navigateToNext?.consume { _ in onNext() }
     }
     
     var body: some View {
         List {
-            Text("Counter: \(state.counter)")
+            Text("Counter: \(state.value.counter)")
             Button("Next") { viewModel.onNextClicked() }
         }
-        .onAppear {
-            viewModel.state.collect(collector: Collector<HomeState> { state in
-                self.state = state
-                self.state.navigateToNext?.consume { _ in onNext() }
-            }) { error in print("Error ocurred during state collection") }
-        }
+    }
+}
+
+extension HomeViewModel {
+    func observableState() -> ObservableHomeState {
+        return (state.value as! HomeState).wrapAsObservable()
     }
 }

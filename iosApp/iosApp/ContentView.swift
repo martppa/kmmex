@@ -12,12 +12,13 @@ struct ContentView: View {
                 viewModel: HomeViewModel(),
                 onNext: { route.append(WifiRoute) }
             )
-        }.navigationDestination(for: String.self) { destination in
-            switch (destination) {
-            case WifiRoute:
-                WifiScreen()
-            default:
-                Text("None")
+            .navigationDestination(for: String.self) { destination in
+                switch (destination) {
+                case WifiRoute:
+                    WifiScreen()
+                default:
+                    Text("None")
+                }
             }
         }
     }
